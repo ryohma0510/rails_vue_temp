@@ -1,0 +1,7 @@
+{
+  "name": "myapp",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5"
+  }
+}
