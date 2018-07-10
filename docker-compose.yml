@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    container_name: db
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    volumes:
+       - datavol:/var/lib/mysql
+  webpacker:
+    container_name: webpacker
+    build: .
+    command: bundle exec bin/webpack-dev-server
+    ports:
+      - "3035:3035"
+    depends_on:
+      - web
+  web:
+    container_name: rails
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+volumes:
+  datavol:
+    driver: local
