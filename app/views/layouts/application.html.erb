@@ -11,5 +11,10 @@
 
   <body>
     <%= yield %>
+    <div id="test">
+      <test></test>
+    </div>
+    <%= javascript_pack_tag 'test'%>
+    <%= stylesheet_pack_tag 'test'%>
   </body>
 </html>
