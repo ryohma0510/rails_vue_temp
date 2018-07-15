@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the template for rails with vue.js app.
 
-Things you may want to cover:
+You can start rails with vue.js app by executing command below.
 
-* Ruby version
+## Usage
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ docker-compose build
+$ sh script/start_vue.sh
+$ docker-compose up
+```
