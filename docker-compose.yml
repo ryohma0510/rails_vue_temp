@@ -1,12 +1,12 @@
-version: '3'
+version: '2'
 services:
   db:
     container_name: db
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: pass
-    volumes:
-       - datavol:/var/lib/mysql
+    volumes_from:
+      - data
   webpacker:
     container_name: webpacker
     build: .
@@ -20,13 +20,22 @@ services:
   web:
     container_name: rails
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec rails s -p 3000 -b 0.0.0.0
     ports:
       - "3000:3000"
     depends_on:
       - db
     volumes:
       - .:/myapp
+    volumes_from:
+      - data
+  data:
+    image: busybox
+    volumes:
+      - datavol:/var/lib/mysql
+      - bundle:/usr/local/bundle
 volumes:
   datavol:
+    driver: local
+  bundle:
     driver: local
