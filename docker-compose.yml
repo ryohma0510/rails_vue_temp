@@ -29,6 +29,8 @@ services:
       - .:/myapp
     volumes_from:
       - data
+    tty: true
+    stdin_open: true
   data:
     image: busybox
     volumes:
