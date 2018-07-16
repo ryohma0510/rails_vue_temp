@@ -36,8 +36,11 @@ services:
     volumes:
       - datavol:/var/lib/mysql
       - bundle:/usr/local/bundle
+      - node_modules:/myapp/node_modules
 volumes:
   datavol:
     driver: local
   bundle:
+    driver: local
+  node_modules:
     driver: local
