@@ -42,3 +42,14 @@ $ docker attach rails
 ```
 
 then you can use binding.pry
+
+### mysql
+
+To use SQL command in mysql container
+
+```
+$ docker exec -it db /bin/bash
+$ mysql -u root -p
+```
+
+then you are asked the password, so input 'pass'
